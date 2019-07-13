@@ -44,5 +44,5 @@ phpunit.phar
 
 #txt
 *.txt
-
+.htaccess
 .env
