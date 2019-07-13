@@ -1,0 +1,21 @@
+{
+  "name": "aprotec",
+  "homepage": "https://github.com/yastopchik/ccimain",
+  "authors": [
+    "Yastopchik <yastopch@gmail.com>"
+  ],
+  "description": "",
+  "main": "index.html",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^4.3.0",
+    "slick-carousel": "^1.8.1"
+  }
+}
