@@ -37,14 +37,14 @@ class UserForm extends Model
     {
         return [
             ['username', 'filter', 'filter' => 'trim'],
-            [['username', 'name_full'], 'required'],
+            [['username'], 'required'],
             ['username', 'unique', 'targetClass' => User::class, 'filter' => function ($query) {
                 if (!$this->getModel()->isNewRecord) {
                     $query->andWhere(['not', ['id'=>$this->getModel()->id]]);
                 }
             }],
             [['username', 'name_full', 'name_short', 'position'], 'string', 'min' => 2, 'max' => 255],
-            [['documents_to', 'roles'], 'safe'],
+            [['documents_to', 'roles', 'name_full'], 'safe'],
             [['phone'], 'string', 'min' => 5, 'max' => 100],
 
             ['email', 'filter', 'filter' => 'trim'],
