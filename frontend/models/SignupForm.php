@@ -4,6 +4,7 @@ namespace frontend\models;
 use Yii;
 use yii\base\Model;
 use common\models\{User, Organization};
+use yii\helpers\ArrayHelper;
 
 /**
  * Signup form
@@ -84,8 +85,18 @@ class SignupForm extends Model
                 $user->generateAuthKey();
                 $user->generateEmailVerificationToken();
                 if($user->save() && $this->sendEmail($user)) {
+                    $auth =  Yii::$app->authManager;
+                    $auth->assign($auth->getRole(1), $user->getId());
                     $transaction->commit();
                     return true;
+                } else {
+                    foreach ($user->getErrors() as $attribute=>$err){
+                        $this->addError($attribute, implode(',', $err));
+                    }
+                }
+            } else {
+                foreach ($organization->getErrors() as $attribute=>$err){
+                    $this->addError($attribute, $err);
                 }
             }
 

@@ -58,6 +58,7 @@ class UserForm extends Model
 
             ['password', 'required', 'on' => 'create'],
             ['password', 'string', 'min' => 6],
+            ['roles', 'string'],
             [['status', 'organization_id'], 'integer']
         ];
     }
@@ -130,7 +131,6 @@ class UserForm extends Model
     {
         if ($this->validate()) {
             $model = $this->getModel();
-            $isNewRecord = $model->getIsNewRecord();
             $model->username = $this->username;
             $model->username = $this->username;
             $model->name_full = $this->name_full;
@@ -150,12 +150,8 @@ class UserForm extends Model
             }
             $auth = Yii::$app->authManager;
             $auth->revokeAll($model->getId());
+            $auth->assign($auth->getRole($this->roles), $model->getId());
 
-            if ($this->roles && is_array($this->roles)) {
-                foreach ($this->roles as $role) {
-                    $auth->assign($auth->getRole($role), $model->getId());
-                }
-            }
 
             return !$model->hasErrors();
         }

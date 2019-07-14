@@ -9,9 +9,9 @@ $verifyLink = Yii::$app->urlManager->createAbsoluteUrl(['verify-email', 'token' 
 <div class="verify-email">
     <p>Здравствуйте <?= Html::encode($user->username) ?>,</p>
 
-    <p>Вы зарегистрировались в web-приложении "Охрана труда и безопасность" на сайте</p>
+    <p>Вы зарегистрировались в web-приложении "Охрана труда online" на сайте</p>
 
-    <a href="<?php echo env('FRONTEND_URL') ?>"> УП "Могилевского отделения БелТПП"</a>
+    <a href="<?php echo env('FRONTEND_URL') ?>"> УП "Могилевскоt отделения БелТПП"</a>
 
     <p>Перейдите по следующей ссылке, чтобы подтвердить свой аккаунт</p>
 

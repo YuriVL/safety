@@ -49,7 +49,7 @@ class User extends ActiveRecord implements IdentityInterface
 
     public function attributeLabels() {
         return [
-            'username' => 'Логин',
+            'username' => 'ФИО',
             'password_hash' => 'Хеш',
             'password' => 'Пароль',
             'password_reset_token' => 'Токен для восстановления',

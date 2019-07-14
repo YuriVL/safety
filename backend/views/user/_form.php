@@ -25,7 +25,7 @@ use kartik\date\DatePicker;
     <?= $form->field($model, 'organization_id')->widget(Select2::class, [
         'data' => ArrayHelper::map(Organization::getAllOrganizations(), 'id', 'name'),
         'initValueText' => true
-    ])->label(false); ?>
+    ]) ?>
 
     <?= $form->field($model, 'phone')->textInput(['maxlength' => true]) ?>
 

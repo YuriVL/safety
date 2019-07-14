@@ -2,6 +2,7 @@
 
 use yii\widgets\DetailView;
 use common\models\User;
+use yii\helpers\ArrayHelper;
 
 /* @var $this yii\web\View */
 /* @var $model backend\models\UserForm */
@@ -24,7 +25,9 @@ use common\models\User;
             [
                 'attribute' => 'documents_to',
                 'value' => function ($model) {
-                    return date('d-m-Y', $model->documents_to);
+                    $date = (!empty($model->documents_to)) ? date('d-m-Y', $model->documents_to) : '';
+                    return $date;
+
                 }
             ],
             [
@@ -55,7 +58,11 @@ use common\models\User;
             [
                 'attribute' => 'roles',
                 'value' => function ($model) use ($roles) {
-                    foreach ($model->roles as $key => $value) {
+                    $user_roles = ArrayHelper::getColumn(
+                        Yii::$app->authManager->getRolesByUser($model->model->getId()),
+                        'name'
+                    );
+                    foreach ($user_roles as $key => $value) {
                         return $roles[$key];
                     }
                 }
