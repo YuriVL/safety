@@ -18,6 +18,8 @@ use ricco\ticket\models\TicketHead;
             echo 'Отвечен';break;
         case TicketHead::CLOSED :
             echo 'Закрыт';break;
+        case TicketHead::VIEWED :
+            echo 'Просмотрен';break;
     }
     ?>
     <br/>

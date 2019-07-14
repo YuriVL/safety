@@ -17,6 +17,18 @@ $config = [
         ],
         'ticket' => [
             'class'         => ricco\ticket\Module::class,
+            'controllerMap' => [
+                'admin' => [
+                    'class' => \backend\controllers\TicketController::class,
+                    'viewPath' => '@backend/views/ticket',
+                ],
+            ],
+            'qq'=>[
+                'Вопрос по работе с приложением' => 'Вопрос по работе с приложением',
+                'Вопрос по документации'     => 'Вопрос по документации',
+                'Вопрос службе тех.поддержки'     => 'Вопрос службе тех.поддержки',
+                'Другое'            => 'Другое',
+            ],
             'adminId'=>[1]
         ],
     ],
@@ -74,6 +86,7 @@ $config = [
             'rules' => [
             ],
         ],
+
     ],
     'params' => $params,
 ];

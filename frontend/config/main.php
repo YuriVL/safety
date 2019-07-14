@@ -9,7 +9,7 @@ return [
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'controllerNamespace' => 'frontend\controllers',
-    'name'=>'Web-приложение по охране труда',
+    'name'=>'Охрана труда on-line',
     'modules' => [
         'ticket' => [
             'class'         => ricco\ticket\Module::class,
@@ -24,7 +24,9 @@ return [
                 'Вопрос по документации'     => 'Вопрос по документации',
                 'Вопрос службе тех.поддержки'     => 'Вопрос службе тех.поддержки',
                 'Другое'            => 'Другое',
-            ]
+            ],
+            'mailSend' => true,
+            'subjectAnswer' => 'Уведомление с веб приложения охрана труда Online'
         ],
     ],
     'components' => [

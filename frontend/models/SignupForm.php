@@ -28,7 +28,8 @@ class SignupForm extends Model
     {
         return [
             [['username', 'organization', 'email', 'agree_term'], 'trim'],
-            [['email', 'organization', 'city', 'password', 'agree_term'], 'required'],
+            [['email', 'organization', 'city', 'password'], 'required'],
+            [['position', 'address'], 'safe'],
             ['username', 'string', 'min' => 2, 'max' => 255],
             ['email', 'email'],
             ['email', 'string', 'max' => 255],
@@ -107,16 +108,15 @@ class SignupForm extends Model
      */
     protected function sendEmail($user)
     {
-        $r = $user;
         return Yii::$app
             ->mailer
             ->compose(
-                ['html' => 'emailVerify-html', 'text' => 'emailVerify-text'],
+                ['html' => 'emailVerify-html'],
                 ['user' => $user]
             )
-            ->setFrom([Yii::$app->params['supportEmail'] => Yii::$app->name . ' Охрана труда'])
+            ->setFrom([Yii::$app->params['supportEmail'] => 'УП "Могилевское отделение БелТПП" - '.Yii::$app->name])
             ->setTo($this->email)
-            ->setSubject('Регистрация пользователя в web приложении по охране труда ' . Yii::$app->name)
+            ->setSubject('Регистрация пользователя в web приложении ' . Yii::$app->name. '')
             ->send();
     }
 }

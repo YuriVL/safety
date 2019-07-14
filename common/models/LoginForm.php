@@ -26,8 +26,26 @@ class LoginForm extends Model
             // rememberMe must be a boolean value
             ['rememberMe', 'boolean'],
             // password is validated by validatePassword()
+            ['email', 'validateEmail'],
             ['password', 'validatePassword'],
         ];
+    }
+
+    /**
+     * Validates the email.
+     * This method serves as the inline validation for password.
+     *
+     * @param string $attribute the attribute currently being validated
+     * @param array $params the additional name-value pairs given in the rule
+     */
+    public function validateEmail($attribute, $params)
+    {
+        if (!$this->hasErrors()) {
+            $user = $this->getUser();
+            if (!$user) {
+                $this->addError($attribute, 'Пользователь с таким email не найден');
+            }
+        }
     }
 
     /**

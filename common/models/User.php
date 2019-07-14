@@ -106,6 +106,14 @@ class User extends ActiveRecord implements IdentityInterface
         ];
     }
 
+    public function beforeSave($insert)
+    {
+        if(!empty($this->documents_to)){
+            $this->documents_to = (new \DateTime($this->documents_to))->getTimestamp();
+        }
+        return parent::beforeSave($insert);
+    }
+
     /**
      * {@inheritdoc}
      */
@@ -281,6 +289,14 @@ class User extends ActiveRecord implements IdentityInterface
             self::STATUS_ACTIVE => 'Активный',
             self::STATUS_DELETED => 'Не активирован',
         ];
+    }
+
+    public static function getActiveClients()
+    {
+        $query = self::find();
+        return self::getDb()->cache(function () use($query) {
+            return $query->where(['status'=>self::STATUS_ACTIVE])->all();
+        },60);
     }
 
 }

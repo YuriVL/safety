@@ -1,4 +1,5 @@
 <?php
+
 use yii\helpers\Url;
 use ricco\ticket\models\TicketHead;
 
@@ -17,7 +18,7 @@ $this->registerJs("
 ");
 ?>
 <div class="container">
-    <?php echo $this->render("//layouts/_breadcrumbs", ['breadcrumbs'=>[$this->title]]); ?>
+    <?php echo $this->render("//layouts/_breadcrumbs", ['breadcrumbs' => [$this->title]]); ?>
     <div class="row">
         <div class="col-lg-12">
             <a type="button" href="<?= Url::to(['ticket/open']) ?>" class="btn btn-primary pull-right"
@@ -26,17 +27,18 @@ $this->registerJs("
             <div>
                 <?= \yii\grid\GridView::widget([
                     'dataProvider' => $dataProvider,
-                    'rowOptions'   => function ($model) {
+                    'rowOptions' => function ($model) {
                         return ['data-id' => $model->id, 'class' => 'ticket'];
                     },
-                    'columns'      => [
+                    'columns' => [
                         'department',
                         'topic',
                         [
                             'contentOptions' => [
                                 'style' => 'text-align:center;',
                             ],
-                            'value'          => function ($model) {
+                            'attribute' => 'status',
+                            'value' => function ($model) {
                                 switch ($model['status']) {
                                     case TicketHead::OPEN :
                                         return '<div class="label label-default">Открыт</div>';
@@ -46,16 +48,19 @@ $this->registerJs("
                                         return '<div class="label label-success">Отвечен</div>';
                                     case TicketHead::CLOSED :
                                         return '<div class="label label-info">Закрыт</div>';
+                                    case TicketHead::VIEWED :
+                                        return '<div class="label label-info">Просмотрен</div>';
                                 }
                             },
-                            'format'         => 'html',
+                            'format' => 'html',
+                            'label'=>'Статус'
                         ],
                         [
                             'contentOptions' => [
                                 'style' => 'text-align:right; font-size:13px',
                             ],
-                            'attribute'      => 'date_update',
-                            'value'          => "date_update",
+                            'attribute' => 'date_update',
+                            'value' => "date_update",
                         ],
                     ],
                 ]) ?>

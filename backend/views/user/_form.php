@@ -3,6 +3,7 @@ use yii\helpers\{Html, ArrayHelper};
 use yii\widgets\ActiveForm;
 use common\models\{User, Organization};
 use kartik\select2\Select2;
+use kartik\date\DatePicker;
 
 /* @var $this yii\web\View */
 /* @var $model backend\models\UserForm */
@@ -30,7 +31,14 @@ use kartik\select2\Select2;
 
     <?= $form->field($model, 'email')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'documents_to')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'documents_to')->widget(DatePicker::class, [
+        'name' => 'documents_to',
+        'type' => DatePicker::TYPE_COMPONENT_APPEND,
+        'pluginOptions' => [
+            'autoclose'=>true,
+            'format' => 'dd-mm-yyyy'
+        ]
+    ]); ?>
 
     <?= $form->field($model, 'status')->dropDownList(User::statuses()) ?>
 

@@ -10,6 +10,7 @@ use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use frontend\assets\DashboardAsset;
 use common\widgets\Alert;
+use ricco\ticket\models\TicketHead;
 
 DashboardAsset::register($this);
 ?>
@@ -36,15 +37,24 @@ DashboardAsset::register($this);
                     'class' => 'navbar navbar-default',
                 ]
             ]);
+            $wait =  TicketHead::getNewTicketCountUser(TicketHead::OPEN);
+            if($wait > 0){
+                $linkLabel = 'Открытые уведомления <i class="fa fa-envelope-o"></i><span class="label label-success">'.$wait.'</span>';
+            } else {
+                $linkLabel = 'Уведомления';
+            }
+
             $menuItems = [
                 ['label' => 'Личный кабинет', 'url' => ['/dashboard/index']],
                 ['label' => 'Документы', 'url' => ['/docs']],
                 ['label' => 'Новости', 'url' => ['/news']],
-                ['label' => 'Служба поддержки', 'url' => ['/ticket']],
+                ['label' => $linkLabel, 'url' => ['/ticket']],
             ];
             echo Nav::widget([
                 'options' => ['class' => 'navbar-nav navbar-left nav'],
                 'items' => $menuItems,
+                'encodeLabels'=>false
+
             ]);
             echo Html::beginTag('ul', ['class' => 'navbar-nav navbar-right navbar-profile nav']);
             if (!Yii::$app->user->isGuest) {

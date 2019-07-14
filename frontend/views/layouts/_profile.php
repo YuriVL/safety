@@ -5,6 +5,7 @@ use yii\helpers\Html;
 /** @var \common\models\User $user */
 $user = \Yii::$app->user->getIdentity();
 $organization = $user->organization;
+$dateTo = date('d-m-Y', $user->documents_to) ?? '';
 
 $menuItems = [
     ['label' => 'Профиль', 'url' => ['profile']],
@@ -15,8 +16,8 @@ echo Html::beginTag('li', ['class' => 'dropdown']);
 
 $b_profile = Html::tag('div',
         Html::tag('div', '(' . $user->id . ') ' . $user->username, ['class' => 'b-profile__name']) .
-        Html::tag('div', 'Организация: ' . $organization->name, ['class' => 'b-profile__line']) ,
-        //Html::tag('div', 'Сообщения: 2', ['class' => 'b-profile__line']),
+        Html::tag('div', 'Организация: ' . $organization->name, ['class' => 'b-profile__line']).
+        Html::tag('div', 'Актуальность документов до: '. $dateTo, ['class' => 'b-profile__line']),
         ['class' => 'b-profile']) . Html::tag('span', '', ['class' => 'caret']);
 echo Html::a($b_profile, '#', ['data-toggle' => 'dropdown']);
 echo Html::beginTag('ul', ['class' => 'dropdown-menu']);

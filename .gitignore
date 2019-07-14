@@ -48,3 +48,6 @@ phpunit.phar
 *.txt
 .htaccess
 .env
+
+#composer
+composer.lock

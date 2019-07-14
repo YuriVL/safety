@@ -27,8 +27,7 @@ $user = \Yii::$app->user->getIdentity();
                 <li class="dropdown messages-menu">
                     <a href="/ticket/admin/index">
                         <i class="fa fa-envelope-o"></i>
-                        <span class="label label-success"><?php echo TicketHead::getNewTicketCount() ?>
-                        </span>
+                        <span class="label label-success"><?php echo TicketHead::getNewTicketCount() ?></span>
                     </a>
                 </li>
 

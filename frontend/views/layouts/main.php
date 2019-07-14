@@ -54,12 +54,11 @@ AppAsset::register($this);
             ]);
             echo Html::beginTag('div', ['class' => 'col-xs-4 col-sm-2 col-md-2 pull-right btn-wrapper']);
             if (Yii::$app->user->isGuest) {
-                echo Html::button(Html::a('Вход', ['/login']),
-                    ['class' => 'btn-sm btn orange pull-right']);
+                echo Html::a('Вход', ['/login'], ['class' => 'btn-sm btn orange pull-right']);
             } else {
                 echo Html::submitButton(
-                    Html::a('Выход', ['/logout']),
-                    ['class' => 'btn-sm btn orange pull-right', 'data-method' => 'post']
+                    Html::a('Выход', ['/logout'], ['data-method' => 'post']),
+                    ['class' => 'btn-sm btn orange pull-right']
                 );
             }
             echo Html::endTag('div');

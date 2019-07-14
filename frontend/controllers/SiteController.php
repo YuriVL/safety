@@ -190,7 +190,7 @@ class SiteController extends Controller
             if ($model->sendEmail()) {
                 Yii::$app->session->setFlash('success', 'Проверьте вашу почту и следуйте дальнейшим инструкциям');
 
-                return $this->goHome();
+                return $this->goBack('login');
             } else {
                 Yii::$app->session->setFlash('error', 'Извините, мы не смогли сбросить пароль для данного email.');
             }
@@ -218,9 +218,9 @@ class SiteController extends Controller
         }
 
         if ($model->load(Yii::$app->request->post()) && $model->validate() && $model->resetPassword()) {
-            Yii::$app->session->setFlash('success', 'Новый парооль сохранен.');
+            Yii::$app->session->setFlash('success', 'Новый пароль сохранен.');
 
-            return $this->goHome();
+            return $this->goBack('login');
         }
 
         return $this->render('resetPassword', [
@@ -244,13 +244,13 @@ class SiteController extends Controller
         }
         if ($user = $model->verifyEmail()) {
             if (Yii::$app->user->login($user)) {
-                Yii::$app->session->setFlash('success', 'Спасибо за регистрацию! В ближайшее время с Вами свяжеться наш специалист.');
-                return $this->goHome();
+                //Yii::$app->session->setFlash('success', 'Спасибо за регистрацию! В ближайшее время с Вами свяжеться наш специалист.');
+                return $this->goBack('dashboard');
             }
         }
 
         Yii::$app->session->setFlash('error', 'Извините, мы не смогли верифицировать Ваш аккаунт с данным токеном.');
-        return $this->goHome();
+        return $this->goBack('login');
     }
 
     /**
@@ -264,7 +264,7 @@ class SiteController extends Controller
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
             if ($model->sendEmail()) {
                 Yii::$app->session->setFlash('success', 'Проверьте Вашу почту и следуйте инструкциям.');
-                return $this->goHome();
+                return $this->goBack('dashboard');
             }
             Yii::$app->session->setFlash('error', 'Извините, мы не смогли сбросить пароль для данного email.');
         }

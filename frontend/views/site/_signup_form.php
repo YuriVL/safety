@@ -11,7 +11,7 @@ use common\models\{
 };
 use kartik\select2\Select2;
 
-$form = ActiveForm::begin(['id' => 'form-signup', 'class' => 'form-vertical']);
+$form = ActiveForm::begin(['id' => 'form-signup', 'class' => 'form-vertical', 'action'=>'/signup']);
 ?>
 
     <div class="row">
@@ -20,10 +20,10 @@ $form = ActiveForm::begin(['id' => 'form-signup', 'class' => 'form-vertical']);
             <div class="row">
                 <div class="col-sm-6">
                     <div class="row">
-                        <?= $form->field($model, 'username') ?>
-                        <?= $form->field($model, 'email') ?>
-                        <?= $form->field($model, 'phone')->textInput() ?>
-                        <?= $form->field($model, 'password')->passwordInput() ?>
+                        <?= $form->field($model, 'username', ['template' => '{input}{label}{error}']) ?>
+                        <?= $form->field($model, 'email', ['template' => '{input}{label}{error}']) ?>
+                        <?= $form->field($model, 'phone', ['template' => '{input}{label}{error}'])->textInput() ?>
+                        <?= $form->field($model, 'password', ['template' => '{input}{label}{error}'])->passwordInput() ?>
                     </div>
                 </div>
                 <div class="col-sm-6">
@@ -35,16 +35,16 @@ $form = ActiveForm::begin(['id' => 'form-signup', 'class' => 'form-vertical']);
                             'options' => ['placeholder' => 'Выберите населенный пункт'],
                             'initValueText' => true
                         ]) ?>
-                        <?= $form->field($model, 'organization')->textInput() ?>
-                        <?= $form->field($model, 'address')->textInput() ?>
-                        <?= $form->field($model, 'position')->textInput() ?>
+                        <?= $form->field($model, 'organization', ['template' => '{input}{label}{error}'])->textInput() ?>
+                        <?= $form->field($model, 'address', ['template' => '{input}{label}{error}'])->textInput() ?>
+                        <?= $form->field($model, 'position', ['template' => '{input}{label}{error}'])->textInput() ?>
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-sm-6 col-md-8 col-xs-12">
                     <?php
-                    $checkboxTemplate = '
+                   /* $checkboxTemplate = '
                                         <label class="checkmark-wrapper">{input}<span class="checkmark" style="top: 10px;"></span>
                                                 <div class="checkbox-text"> я принимаю <a href="/terms" target="_blank">условия
                                                     пользовательского соглашения</a></div>{error}
@@ -55,7 +55,7 @@ $form = ActiveForm::begin(['id' => 'form-signup', 'class' => 'form-vertical']);
                             'class' => 'checkbox',
                             'type' => 'checkbox'
                         ],
-                    ])->label(false);
+                    ])->label(false);*/
                     ?>
 
                 </div>

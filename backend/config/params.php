@@ -1,4 +1,5 @@
 <?php
 return [
-    'adminEmail' => 'admin@example.com',
+    'adminEmail' => env('MAILER_EMAIL'),
+    'supportEmail' => env('MAILER_EMAIL'),
 ];

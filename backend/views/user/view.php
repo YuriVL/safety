@@ -22,6 +22,12 @@ use common\models\User;
             'position',
             'phone',
             [
+                'attribute' => 'documents_to',
+                'value' => function ($model) {
+                    return date('d-m-Y', $model->documents_to);
+                }
+            ],
+            [
                 'attribute' => 'organization_id',
                 'value' => function ($model) {
                     return $model->model->organization->name;

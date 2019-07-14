@@ -6,7 +6,7 @@ return [
         '@npm'   => '@vendor/npm-asset',
     ],
     'vendorPath' => dirname(dirname(__DIR__)) . '/vendor',
-    'name'=>'Охрана труда',
+    'name'=>'Охрана труда on-line',
     'components' => [
         'cache' => [
             'class' => 'yii\caching\FileCache',
@@ -30,13 +30,14 @@ return [
         'mailer' => [
             'class' => 'yii\swiftmailer\Mailer',
             'useFileTransport' => false,
+            'viewPath' => '@frontend/views/mail',
             'transport' => [
                 'class' => 'Swift_SmtpTransport',
-                'host' => 'smtp.gmail.com',
+                'host' => env('MAILER_HOST'),
                 'username' => env('MAILER_EMAIL'),
                 'password' => env('MAILER_PASS'),
                 'port' => env('MAILER_PORT'),
-                'encryption' => env('MAILER_ENCRYPT')
+                'encryption' => env('MAILER_ENCRYPT') ?? ""
             ],
         ],
     ],
