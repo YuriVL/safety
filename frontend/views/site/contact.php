@@ -49,7 +49,7 @@ $this->title = 'Контакты';
                                     Телефон:
                                 </div>
                                 <div class="contacts__text">
-                                    <a href="tel:+375222778031">+375 (222) 77 80 31</a>
+                                    <a href="tel:<?php echo env('PHONE') ?? '';?>"><?php echo env('PHONE') ?? '';?>; ?></a>
                                 </div>
                             </div>
                             <div class="col-sm-12 col-md-6">
@@ -57,7 +57,7 @@ $this->title = 'Контакты';
                                     Емайл:
                                 </div>
                                 <div class="contacts__text">
-                                    <a href="mailto:info.mogilev@cci.by">info.mogilev@cci.by</a>
+                                    <a href="mailto:<?php echo env('EMAIL')??''; ?>"><?php echo env('EMAIL')??''; ?></a>
                                 </div>
                             </div>
                         </div>

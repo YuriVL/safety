@@ -1,9 +1,11 @@
 <?php
 
+use common\models\User;
 /* @var $this yii\web\View */
 /* @var $model \frontend\models\SignupForm */
 
 $this->title = 'Web приложение по охране труда';
+
 ?>
 <main>
     <div class="container-fluid dark">
@@ -76,7 +78,7 @@ $this->title = 'Web приложение по охране труда';
                         <p>4. Сопровождение Вашей организации по вопросам охраны труда (аутсорсинг). </p>
                         <div class="col-lg-9 no-paddings yellow contacts">
                             <div class="left">
-                                +375 (222) 77 80 31 info.mogilev@cci.by
+                               <?php echo env('PHONE') ?? '';?> <?php echo env('EMAIL'); ?>
                             </div>
                         </div>
                     </div>

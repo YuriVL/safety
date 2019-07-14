@@ -85,8 +85,8 @@ AppAsset::register($this);
                     Республика Беларусь, 212022, г. Могилев, ул. Циолковского , д.1
                 </div>
                 <div class="col-md-2 col-sm-7 col-xs-12 social-block">
-                    <strong>+375 (222) 77 80 31</strong>
-                    <a href="mailto:info.mogilev@cci.by">info.mogilev@cci.by</a>
+                    <strong><?php echo env('PHONE') ?? '';?></strong>
+                    <a href="mailto:<?php echo env('EMAIL')??''; ?>"><?php echo env('EMAIL')??''; ?></a>
                 </div>
             </div>
         </div>

@@ -27,7 +27,7 @@ CrudAsset::register($this);
             'toolbar'=> [
                 ['content'=>
                     Html::a('<i class="glyphicon glyphicon-plus"></i>', ['create'],
-                    ['title'=> 'Добавить организацию','class'=>'btn btn-default']).
+                    ['role'=>'modal-remote', 'title'=> 'Добавить организацию','class'=>'btn btn-default']).
                     Html::a('<i class="glyphicon glyphicon-repeat"></i>', [''],
                     ['data-pjax'=>1, 'class'=>'btn btn-default', 'title'=>'Обновить список']).
                     '{toggleData}'.
