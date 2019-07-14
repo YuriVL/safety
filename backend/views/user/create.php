@@ -9,6 +9,6 @@ use yii\helpers\Html;
 ?>
 <div class="user-create">
     <?= $this->render('_form', [
-        'model' => $model,
+        'model' => $model, 'create'=>true
     ]) ?>
 </div>

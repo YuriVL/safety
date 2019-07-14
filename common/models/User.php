@@ -108,7 +108,7 @@ class User extends ActiveRecord implements IdentityInterface
 
     public function beforeSave($insert)
     {
-        if(!empty($this->documents_to)){
+        if(!empty($this->documents_to && !is_numeric($this->documents_to))){
             $this->documents_to = (new \DateTime($this->documents_to))->getTimestamp();
         }
         return parent::beforeSave($insert);

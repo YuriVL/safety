@@ -5,7 +5,8 @@ use yii\helpers\Html;
 /** @var \common\models\User $user */
 $user = \Yii::$app->user->getIdentity();
 $organization = $user->organization;
-$dateTo = date('d-m-Y', $user->documents_to) ?? '';
+
+$dateTo = (!empty($user->documents_to)) ? date('d-m-Y', $user->documents_to) : '';
 
 $menuItems = [
     ['label' => 'Профиль', 'url' => ['profile']],

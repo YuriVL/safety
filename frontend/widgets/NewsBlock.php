@@ -64,7 +64,7 @@ class NewsBlock extends Widget
             //head
             $content .= Html::beginTag('div', ['class' => "panel-heading"]);
             $content .= Html::tag('h4', Html::a($model->title, ['/news', ['id'=>$model->id]]));
-            $content .= Html::tag('time', Yii::$app->formatter->asDatetime($model->created_at),
+            $content .= Html::tag('time', date('d-m-Y H:i', $model->created_at),
                 [
                     'datetime' => Yii::$app->formatter->asDatetime($model->created_at, 'php:c'),
                     'class' => 'badge',

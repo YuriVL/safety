@@ -79,7 +79,7 @@ AppAsset::register($this);
                     <img src="./app/img/logo.png" alt="" class="footer-logo">
                 </div>
                 <div class="col-md-4 col-sm-6 copyright">
-                    (C)<?= date('Y') ?> Все права защищены <br> УП Могилевское отделение БелТПП
+                    Copyright ©<?= date('Y') ?> Все права защищены <br> УП Могилевское отделение БелТПП
                 </div>
                 <div class="col-md-4 col-sm-6">
                     Республика Беларусь, 212022, г. Могилев, ул. Циолковского , д.1

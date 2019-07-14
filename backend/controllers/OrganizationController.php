@@ -14,7 +14,7 @@ use yii\helpers\Html;
 /**
  * OrganizationController implements the CRUD actions for Organization model.
  */
-class OrganizationController extends Controller
+class OrganizationController extends BackendController
 {
     /**
      * @inheritdoc

@@ -14,7 +14,7 @@ use yii\helpers\Html;
 /**
  * FilesDirectoryController implements the CRUD actions for FilesDirectory model.
  */
-class FilesDirectoryController extends Controller
+class FilesDirectoryController extends BackendController
 {
     /**
      * @inheritdoc

@@ -14,7 +14,7 @@ use yii\helpers\Html;
 /**
  * CityController implements the CRUD actions for City model.
  */
-class CityController extends Controller
+class CityController extends BackendController
 {
     /**
      * @inheritdoc

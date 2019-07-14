@@ -22,6 +22,27 @@ use backend\models\TicketMailer;
 
 class TicketController extends AdminController
 {
+    public function beforeAction($action)
+    {
+        $user=Yii::$app->user->identity;
+
+        if($user !== null){
+            $auth = Yii::$app->authManager;
+
+            $roles = $auth->getRolesByUser($user->getId());
+
+            foreach ($roles as $roleId=>$role){
+                if($roleId !== \common\models\User::ROLE_ADMINISTRATOR) {
+                    Yii::$app->user->logout();
+                    return $this->redirect(\Yii::getAlias('@frontendUrl'));
+                }
+            }
+
+        }
+
+        return parent::beforeAction($action);
+    }
+
     public function actionOpen()
     {
         $request = Yii::$app->request;

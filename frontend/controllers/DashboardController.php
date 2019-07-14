@@ -79,7 +79,7 @@ class DashboardController extends Controller
             if ($model->save()) {
                 Yii::$app->session->setFlash('success', 'Данные успешно изменены');
             } else {
-                Yii::$app->session->setFlash('error', 'Извините, мы не изменить данные.');
+                Yii::$app->session->setFlash('error', 'Извините, нам удалось изменить данные.');
             }
         }
 

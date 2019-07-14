@@ -15,7 +15,7 @@ use mihaildev\elfinder\Controller;
  * Ovveride Elfinder controller method actionManager
  * @package backend\controllers
  */
-class ElfinderController extends Controller
+class ElfinderController extends BackendController
 {
     public function actionManager(){
         return $this->renderFile("@backend/views/file-manager/manager.php", [

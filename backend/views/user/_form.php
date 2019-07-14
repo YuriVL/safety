@@ -8,6 +8,7 @@ use kartik\date\DatePicker;
 /* @var $this yii\web\View */
 /* @var $model backend\models\UserForm */
 /* @var $form yii\widgets\ActiveForm */
+/* @var $create boolean*/
 ?>
 
 <div class="user-form">
@@ -15,6 +16,13 @@ use kartik\date\DatePicker;
     <?php $form = ActiveForm::begin(); ?>
 
     <?= $form->field($model, 'username')->textInput(['maxlength' => true]) ?>
+
+    <?php
+    if($create){
+        echo $form->field($model, 'password')->passwordInput() ;
+    }
+
+    ?>
 
     <?= $form->field($model, 'name_full')->textInput(['maxlength' => true]) ?>
 

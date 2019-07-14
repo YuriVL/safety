@@ -2,7 +2,7 @@
 
 namespace backend\controllers;
 
-class FileManagerController extends \yii\web\Controller
+class FileManagerController extends BackendController
 {
     public function actionIndex()
     {

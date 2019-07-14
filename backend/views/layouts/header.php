@@ -33,7 +33,7 @@ $user = \Yii::$app->user->getIdentity();
 
                 <li class="dropdown user user-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        <img src="/img/logo.png" class="user-image" alt="User Image"/>
+                        <img src="/img/logo.png" class="user-image"/>
                         <span class="hidden-xs"><?php echo $user->username ?></span>
                     </a>
                     <ul class="dropdown-menu">
@@ -41,7 +41,7 @@ $user = \Yii::$app->user->getIdentity();
                         <li class="user-footer">
                             <div class="pull-right">
                                 <?= Html::a(
-                                    'Sign out',
+                                    'Выйти',
                                     ['/site/logout'],
                                     ['data-method' => 'post', 'class' => 'btn btn-default btn-flat']
                                 ) ?>

@@ -44,7 +44,7 @@ class UserForm extends Model
                 }
             }],
             [['username', 'name_full', 'name_short', 'position'], 'string', 'min' => 2, 'max' => 255],
-            [['documents_to'], 'string', 'max' => 255],
+            [['documents_to'], 'safe'],
             [['phone'], 'string', 'min' => 5, 'max' => 100],
 
             ['email', 'filter', 'filter' => 'trim'],
@@ -150,7 +150,8 @@ class UserForm extends Model
             }
             $auth = Yii::$app->authManager;
             $auth->revokeAll($model->getId());
-            $auth->assign($auth->getRole($this->roles ?? User::ROLE_CONTENT), $model->getId());
+            $roles= !empty($this->roles) ? $this->roles : User::ROLE_CONTENT;
+            $auth->assign($auth->getRole($roles), $model->getId());
 
 
             return !$model->hasErrors();
