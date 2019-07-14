@@ -216,6 +216,7 @@ header .nav {
 
 .navbar .navbar-collapse .btn {
     margin-top: 20px;
+    text-decoration: none;
 }
 
 @media (max-width: 767px) {
