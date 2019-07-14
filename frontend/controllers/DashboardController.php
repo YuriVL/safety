@@ -81,6 +81,8 @@ class DashboardController extends Controller
             } else {
                 Yii::$app->session->setFlash('error', 'Извините, нам удалось изменить данные.');
             }
+        } else {
+var_dump($model->getErrors());
         }
 
         return $this->render('profile-edit', ['user'=>$user, 'model'=>$model]);
