@@ -86,7 +86,7 @@ class SignupForm extends Model
                 $user->generateEmailVerificationToken();
                 if($user->save() && $this->sendEmail($user)) {
                     $auth =  Yii::$app->authManager;
-                    $auth->assign($auth->getRole(3), $user->getId());
+                    $auth->assign($auth->getRole(User::ROLE_CONTENT), $user->getId());
                     $transaction->commit();
                     return true;
                 } else {

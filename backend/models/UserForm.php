@@ -150,7 +150,7 @@ class UserForm extends Model
             }
             $auth = Yii::$app->authManager;
             $auth->revokeAll($model->getId());
-            $auth->assign($auth->getRole($this->roles ?? 3), $model->getId());
+            $auth->assign($auth->getRole($this->roles ?? User::ROLE_CONTENT), $model->getId());
 
 
             return !$model->hasErrors();
