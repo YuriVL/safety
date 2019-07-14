@@ -44,7 +44,7 @@ class UserForm extends Model
                 }
             }],
             [['username', 'name_full', 'name_short', 'position'], 'string', 'min' => 2, 'max' => 255],
-            [['documents_to'], 'safe'],
+            [['documents_to', 'roles'], 'safe'],
             [['phone'], 'string', 'min' => 5, 'max' => 100],
 
             ['email', 'filter', 'filter' => 'trim'],
@@ -58,7 +58,6 @@ class UserForm extends Model
 
             ['password', 'required', 'on' => 'create'],
             ['password', 'string', 'min' => 6],
-            ['roles', 'string'],
             [['status', 'organization_id'], 'integer']
         ];
     }
