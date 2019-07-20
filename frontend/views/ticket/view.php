@@ -2,7 +2,7 @@
 
 use yii\helpers\Html;
 
-$this->title = 'Вопрос-ответ | Служба поддержки';
+$this->title = 'Уведомления | Вопрос-ответ';
 
 /** @var \ricco\ticket\models\TicketBody $newTicket */
 /** @var \ricco\ticket\models\TicketBody $thisTicket */

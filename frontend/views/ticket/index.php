@@ -5,7 +5,7 @@ use ricco\ticket\models\TicketHead;
 
 /** @var TicketHead $dataProvider */
 
-$this->title = 'Тикеты | Служба поддержки';
+$this->title = 'Уведомления';
 
 $this->registerJs("
 

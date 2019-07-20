@@ -8,7 +8,7 @@ use kartik\grid\GridView;
 use johnitvn\ajaxcrud\CrudAsset;
 use johnitvn\ajaxcrud\BulkButtonWidget;
 
-$this->title = 'Уведомдления от пользователей';
+$this->title = 'Уведомления от пользователей';
 $this->params['breadcrumbs'][] = $this->title;
 
 CrudAsset::register($this);

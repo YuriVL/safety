@@ -1,7 +1,7 @@
 <?php
 use yii\helpers\Url;
 
-$this->title = 'Задать вопрос | Служба поддержки';
+$this->title = 'Уведомления | Задать вопрос';
 
 /** @var \ricco\ticket\models\TicketHead $ticketHead */
 /** @var \ricco\ticket\models\TicketBody $ticketBody */
