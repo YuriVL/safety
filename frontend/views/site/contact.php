@@ -49,7 +49,7 @@ $this->title = 'Контакты';
                                     Телефон:
                                 </div>
                                 <div class="contacts__text">
-                                    <a href="tel:<?php echo env('PHONE') ?? '';?>"><?php echo env('PHONE') ?? '';?>; ?></a>
+                                    <a href="tel:<?php echo env('PHONE') ?? '';?>"><?php echo env('PHONE') ?? '';?>; </a>
                                 </div>
                             </div>
                             <div class="col-sm-12 col-md-6">
